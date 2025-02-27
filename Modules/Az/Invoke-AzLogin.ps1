@@ -1,8 +1,16 @@
 
+### General Vars
+$TenantId = "" # Azure Tenant ID
+$ClientId = "" # Service Principal Id
+$KeyId = "" # Service Principal Secret
 
 ### Powershell
-# Login
+# Login Interactive
 Connect-AzAccount
+# Login Service Prinipal
+$SecurePassword = ConvertTo-SecureString -String $KeyId -AsPlainText -Force
+$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $ClientId, $SecurePassword
+Connect-AzAccount -ServicePrincipal -TenantId $TenantId -Credential $Credential
 
 # Get Subscription
 Get-AzSubscription
@@ -15,9 +23,12 @@ Set-AzContext -SubscriptionID $SubscriptionID
 ##################
 
 ### Az Cli
-# Login
+# Login Interactive
 az login
-Write-Output 0 | az login # bypass interactive dialog
+# Login bypass interactive dialog
+Write-Output 0 | az login 
+# Login Service Prinipal
+az login --service-principal -u $ClientId -p $KeyId --tenant $TenantId
 
 # Get Subscription
 az account list --out json
