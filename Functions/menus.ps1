@@ -31,11 +31,11 @@ $options += New-Object System.Management.Automation.Host.ChoiceDescription '&Int
 $options += New-Object System.Management.Automation.Host.ChoiceDescription '&CodeFr', 'Code Freeze'
 $options += New-Object System.Management.Automation.Host.ChoiceDescription '&Vsts', 'VSTS'
 $options += New-Object System.Management.Automation.Host.ChoiceDescription '&Zabbix', 'Zabbix'
-$title = 'Azure Subscription'
-$message = 'Subscription?'
-$resultSub = $host.ui.PromptForChoice($title, $message, $options, 0)
+$title = 'Azure User'
+$message = 'User?'
+$resultUser = $host.ui.PromptForChoice($title, $message, $options, 0)
 $KvSecret = 'interact'
-switch ($resultLogin) {
+switch ($resultUser) {
     0 { $KvSecret = 'interact' }
     1 { $KvSecret = 'adocodefr' }
     2 { $KvSecret = 'vsts' }
