@@ -31,8 +31,29 @@ Copy-Item @HashArguments
 # equivalent
 Copy-Item -Path "test.txt" -Destination "test2.txt" -WhatIf
 
+### Clone
+$map1 = @{
+  id = 0
+  name = "Fruit"
+  value = "Banana"
+}
+$map1.Clone() # success
+
+$map2 = [ordered]@{
+  id = 0
+  name = "Fruit"
+  value = "Banana"
+}
+$map2.Clone() # Failed
+
+$ClonedMap = [ordered]@{}
+foreach ($key in $map2.Keys) {
+  $ClonedMap.Add($key, $map2[$key])
+}
+
 ### Other
 $map.Keys
 $map.ContainsKey('NY')
 $map.ContainsValue('Wisconsin')
 $map.GetEnumerator()
+
