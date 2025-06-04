@@ -147,3 +147,8 @@ function Write-Item {
     Write-Host $title -ForegroundColor $fgBold -NoNewline
     Write-Host $message
 }
+
+function isDate([string]$strdate)
+{
+    [boolean]($strdate -as [DateTime])
+}
