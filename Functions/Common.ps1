@@ -148,7 +148,11 @@ function Write-Item {
     Write-Host $message
 }
 
-function isDate([string]$strdate)
-{
+function isDate([string]$strdate) {
     [boolean]($strdate -as [DateTime])
+}
+
+function Format-IntMB([int64]$inInt) {
+    $mbValue = $inInt / 1MB
+    return "$mbValue MB"
 }
