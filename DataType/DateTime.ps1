@@ -32,6 +32,11 @@ New-TimeSpan -Start $StartDate -End $EndDate
 # Get time as Unix
 [long](Get-Date -UFormat %s)
 
+[DateTimeOffset]::Now.ToUnixTimeSeconds()
+
+$DateTime = Get-Date #or any other command to get DateTime object
+([DateTimeOffset]$DateTime).ToUnixTimeSeconds()
+
 # Convert Unix time to Datetime
 $unixTimestamp = 1699765200
 $dateTimeUtc = [System.DateTimeOffset]::FromUnixTimeSeconds($unixTimestamp).UtcDateTime
