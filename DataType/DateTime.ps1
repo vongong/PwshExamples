@@ -27,3 +27,12 @@ New-TimeSpan -Start $StartDate -End $EndDate
 # To add or subtract time, use the AddDays, AddHours, AddMinutes, or AddSeconds methods.
 (Get-Date).AddDays(1)
 (Get-Date).AddHours(-2)
+
+## Unix Time
+# Get time as Unix
+[long](Get-Date -UFormat %s)
+
+# Convert Unix time to Datetime
+$unixTimestamp = 1699765200
+$dateTimeUtc = [System.DateTimeOffset]::FromUnixTimeSeconds($unixTimestamp).UtcDateTime
+Write-Output $dateTimeUtc
