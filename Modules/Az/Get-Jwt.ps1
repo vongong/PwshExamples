@@ -21,6 +21,7 @@ Write-Output "jwt: $($response.access_token)"
 
 ### Azure Cli
 $accessToken = az account get-access-token --resource $ApiResourceId --query "accessToken" --output tsv
+Set-Clipboard -Value $accessToken
 Write-Output "jwt: $accessToken"
 
 ### Azure Powershell Az Module
