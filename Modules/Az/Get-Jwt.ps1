@@ -7,6 +7,7 @@ $ApiResourceId = "https://management.azure.com/"
 $ApiResourceId = "499b84ac-1321-427f-aa17-267ca6975798"
 
 ### Other Vars for Service Principal
+# Get-AzKeyVaultSecret -VaultName $KeyVaultName -Name $SecretName -AsPlainText
 $TenantId = "" # Azure Tenant ID
 $ClientId = "" # Service Principal Id
 $KeyId = "" # Service Principal Secret
