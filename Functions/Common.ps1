@@ -32,7 +32,7 @@ function Write-DebugMsg {
 
 # Logout
 $CurrDate = Get-Date -Format "yyyy-MM-dd"
-$logFile = "C:\Gong\tmp\$logName-$currDate.log"
+$logFile = "C:\dev\tmp\$logName-$currDate.log"
 function Write-Logger {
     param (
         [string] $Message = ''
