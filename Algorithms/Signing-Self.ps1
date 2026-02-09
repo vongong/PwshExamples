@@ -19,4 +19,4 @@ Get-ChildItem Cert:\CurrentUser\my -CodeSigningCert
 $cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert | Select-Object -First 1
 
 $File = "C:\path\to\your\script.ps1"
-Set-AuthenticodeSignature -FilePath $File -Certificate $cert
+Set-AuthenticodeSignature -Certificate $cert -FilePath $File
