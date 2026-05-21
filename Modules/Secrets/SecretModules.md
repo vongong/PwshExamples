@@ -43,17 +43,17 @@ Get-Command -Module Microsoft.PowerShell.SecretStore
 
 # Set up the Vault for SecretStore
 ## When Register, will not ask for password. First Uses will ask for password
-Register-SecretVault -Name "PersonalVault" -ModuleName "Microsoft.PowerShell.SecretStore"
+Register-SecretVault -Name "LocalVault" -ModuleName "Microsoft.PowerShell.SecretStore"
 
 # Set up the Vault for Azure
 Register-SecretVault -Name "MyAzureVault" -ModuleName "Az.KeyVault" -VaultParameters @{ AZKVaultName = "YourVaultName"; SubscriptionId = "YourSubID" }
 
 # List/Get Secret Vaults
 Get-SecretVault
-Get-SecretVault -Name "PersonalVault" | Format-List -Property *
+Get-SecretVault -Name "LocalVault" | Format-List -Property *
 
 # Set Default Vault
-Set-SecretVaultDefault -Name "PersonalVault"
+Set-SecretVaultDefault -Name "LocalVault"
 
 # Clear Default Vault (no defaults)
 Set-SecretVaultDefault -ClearDefault
@@ -64,7 +64,7 @@ Set-SecretStoreConfiguration -PasswordTimeout 900 # in Seconds (15 mins)
 
 # Use Secret - Text
 Set-Secret -Name "FirstEntry" -Secret "This is my secret" #assume default
-Set-Secret -Name "FirstEntry" -Secret "This is my secret" -Vault "PersonalVault"
+Set-Secret -Name "FirstEntry" -Secret "This is my secret" -Vault "LocalVault"
 Get-SecretInfo
 ## same as Get-Secret FirstEntry -AsPlainText
 $mySecret = Get-Secret YourEntry
