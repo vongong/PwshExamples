@@ -26,6 +26,10 @@
 
 ## cmds
 ```powershell
+# Find Modules
+Find-Module -Name Microsoft.PowerShell.SecretManagement
+Find-Module -Tag "SecretManagement" | select name, author, company, version
+
 # Install Modules
 Install-Module -Name Microsoft.PowerShell.SecretManagement -Repository PSGallery
 Install-Module -Name Microsoft.PowerShell.SecretStore -Repository PSGallery
@@ -38,7 +42,7 @@ Get-Command -Module Microsoft.PowerShell.SecretManagement
 Get-Command -Module Microsoft.PowerShell.SecretStore
 
 # Set up the Vault for SecretStore
-## Could set blank password - not advised
+## When Register, will not ask for password. First Uses will ask for password
 Register-SecretVault -Name "PersonalVault" -ModuleName "Microsoft.PowerShell.SecretStore"
 
 # Set up the Vault for Azure
@@ -54,9 +58,9 @@ Set-SecretVaultDefault -Name "PersonalVault"
 # Clear Default Vault (no defaults)
 Set-SecretVaultDefault -ClearDefault
 
-# Config Vault
+# Config Vault - Secret Store
 Get-SecretStoreConfiguration
-Set-SecretStoreConfiguration -PasswordTimeout 30
+Set-SecretStoreConfiguration -PasswordTimeout 900 # in Seconds (15 mins)
 
 # Use Secret - Text
 Set-Secret -Name "FirstEntry" -Secret "This is my secret" #assume default
