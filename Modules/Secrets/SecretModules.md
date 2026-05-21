@@ -82,5 +82,5 @@ Set-Secret -Name "MyServiceAccount" -Secret $myCred
 Enter-PSSession -ComputerName ana-client1 -Authentication Default -Credential (Get-Secret -Name "MyServiceAccount") -UseSSL
 
 # Remove Secret
-Remove-Secret -Name "FirstEntry"
+Remove-Secret -Name "FirstEntry" -Vault "LocalVault"
 ```
