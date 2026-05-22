@@ -10,8 +10,10 @@
 ## Modules / Notes
 - Microsoft.PowerShell.SecretManagement - modules to store and retrieve secrets
   - https://github.com/powershell/SecretManagement
+  - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.secretmanagement/?view=ps-modules
 - Microsoft.PowerShell.SecretStore - extension for SecretManagement module; allows local store of secrets
   - https://github.com/powershell/SecretStore
+  - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.secretstore/?view=ps-modules
   - Default secret store path: `$env:USERPROFILE\AppData\Local\Microsoft\PowerShell\secretmanagement\localstore`
 - Other Ecosystem that works with SecretManagement
   - KeePass
