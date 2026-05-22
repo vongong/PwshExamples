@@ -1,6 +1,6 @@
 # Secret Management in Powershell
-- [article-1](https://www.learningkoala.com/powershell-secret-management.html)
-- [article-2](https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/)
+- [secret mgmt](https://www.learningkoala.com/powershell-secret-management.html)
+- [ms secret mgmt](https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/)
 - [yt PowerShell Secrets Management - Mike Kanakos](https://www.youtube.com/watch?v=vEniQPooUSs&pp=ygVCZ2V0dGluZyBzdGFydGVkIHdpdGggc2VjcmV0cyBtYW5hZ21lbnQgZm9yIHBvd2Vyc2hlbGwgbWlrZSBrYW5ha29z)
 
 ## Modules / Notes
